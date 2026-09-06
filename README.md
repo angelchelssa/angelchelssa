@@ -25,7 +25,7 @@ I am an Information Technology student building a strong foundation in programmi
 
 ### Learning Roadmap
 
-<!-- LEARNING-ROADMAP:START -->
+<!-- LEARNING-ROADMAP:START. -->
 ```mermaid
 graph LR
     A["Java"] --> B["JavaScript"]
