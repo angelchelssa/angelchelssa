@@ -1,8 +1,11 @@
 """
-Mengambil bahasa pemrograman yang benar-benar dipakai di semua repo publik
-GitHub kamu, lalu mengganti baris Tech Stack di README.md dengan icon
-yang sesuai (via skillicons.dev). Icon Git dan GitHub selalu ditambahkan
-di akhir karena keduanya adalah tools, bukan bahasa pemrograman.
+Menyusun Learning Roadmap secara otomatis berdasarkan urutan bahasa
+pemrograman yang PERTAMA KALI muncul di repo GitHub kamu, diurutkan dari
+repo yang paling lama dibuat ke yang paling baru.
+
+Catatan: ini adalah perkiraan berdasarkan histori GitHub, bukan urutan
+belajar yang sebenarnya (misalnya kalau kamu belajar sesuatu sebelum
+sempat membuat repo untuk itu, urutan di sini tidak akan menangkapnya).
 """
 
 import os
@@ -15,31 +18,28 @@ USERNAME = os.environ.get("GITHUB_REPOSITORY_OWNER", "angelchelssa")
 TOKEN = os.environ.get("GITHUB_TOKEN", "")
 README_PATH = "README.md"
 
-# Pemetaan nama bahasa dari GitHub API ke id icon skillicons.dev
-# Bahasa yang tidak ada di kamus ini otomatis diabaikan (tidak error).
-LANGUAGE_TO_ICON = {
-    "Java": "java",
-    "HTML": "html",
-    "CSS": "css",
-    "JavaScript": "js",
-    "TypeScript": "ts",
-    "Python": "py",
-    "C++": "cpp",
-    "C": "c",
-    "C#": "cs",
-    "PHP": "php",
-    "Dart": "dart",
-    "Go": "go",
-    "Ruby": "ruby",
-    "Swift": "swift",
-    "Kotlin": "kotlin",
-    "Shell": "bash",
-    "Vue": "vue",
-    "Rust": "rust",
+# Nama tampilan untuk tiap bahasa (dipakai sebagai label node diagram)
+DISPLAY_NAME = {
+    "Java": "Java",
+    "HTML": "HTML",
+    "CSS": "CSS",
+    "JavaScript": "JavaScript",
+    "TypeScript": "TypeScript",
+    "Python": "Python",
+    "C++": "C++",
+    "C": "C",
+    "C#": "C#",
+    "PHP": "PHP",
+    "Dart": "Dart",
+    "Go": "Go",
+    "Ruby": "Ruby",
+    "Swift": "Swift",
+    "Kotlin": "Kotlin",
+    "Shell": "Shell",
+    "Vue": "Vue",
+    "Rust": "Rust",
+    "Jupyter Notebook": "Python (ML)",
 }
-
-# Tools tetap yang selalu ditampilkan di akhir baris
-STATIC_TOOLS = ["git", "github"]
 
 
 def gh_get(url):
@@ -51,49 +51,61 @@ def gh_get(url):
         return json.loads(resp.read().decode())
 
 
-def get_top_languages(username, max_repos=100):
-    repos = gh_get(f"https://api.github.com/users/{username}/repos?per_page={max_repos}")
-    totals = {}
+def get_chronological_languages(username, max_repos=100):
+    repos = gh_get(
+        f"https://api.github.com/users/{username}/repos"
+        f"?per_page={max_repos}&sort=created&direction=asc"
+    )
+    ordered_languages = []
     for repo in repos:
-        if repo.get("fork"):
+        if repo.get("fork") or repo.get("private"):
             continue
-        name = repo["name"]
-        try:
-            langs = gh_get(f"https://api.github.com/repos/{username}/{name}/languages")
-        except Exception:
+        lang = repo.get("language")
+        if not lang:
             continue
-        for lang, bytes_count in langs.items():
-            totals[lang] = totals.get(lang, 0) + bytes_count
-
-    # urutkan dari yang paling banyak dipakai
-    sorted_langs = sorted(totals.items(), key=lambda x: x[1], reverse=True)
-    icons = []
-    for lang, _ in sorted_langs:
-        icon = LANGUAGE_TO_ICON.get(lang)
-        if icon and icon not in icons:
-            icons.append(icon)
-    return icons
+        display = DISPLAY_NAME.get(lang)
+        if display and display not in ordered_languages:
+            ordered_languages.append(display)
+    return ordered_languages
 
 
-def update_readme(icons):
+def build_mermaid(languages):
+    if not languages:
+        languages = ["Java"]
+
+    node_ids = [chr(ord("A") + i) for i in range(len(languages))]
+    lines = ["```mermaid", "graph LR"]
+
+    if len(node_ids) == 1:
+        lines.append(f"    {node_ids[0]}[{languages[0]}]")
+    else:
+        for i in range(len(node_ids) - 1):
+            lines.append(
+                f"    {node_ids[i]}[{languages[i]}] --> {node_ids[i+1]}[{languages[i+1]}]"
+            )
+
+    lines.append("")
+    for node_id in node_ids:
+        lines.append(f"    style {node_id} fill:#1f2937,stroke:#2F81F7,color:#fff")
+    lines.append("```")
+    return "\n".join(lines)
+
+
+def update_readme(mermaid_block):
     with open(README_PATH, "r", encoding="utf-8") as f:
         content = f.read()
 
-    all_icons = icons + [t for t in STATIC_TOOLS if t not in icons]
-    icon_query = ",".join(all_icons)
     new_block = (
-        "<!-- TECH-STACK:START -->\n"
-        '<p align="center">\n'
-        f'  <img src="https://skillicons.dev/icons?i={icon_query}" />\n'
-        "</p>\n"
-        "<!-- TECH-STACK:END -->"
+        "<!-- LEARNING-ROADMAP:START -->\n"
+        f"{mermaid_block}\n"
+        "<!-- LEARNING-ROADMAP:END -->"
     )
 
     pattern = re.compile(
-        r"<!-- TECH-STACK:START -->.*?<!-- TECH-STACK:END -->", re.DOTALL
+        r"<!-- LEARNING-ROADMAP:START -->.*?<!-- LEARNING-ROADMAP:END -->", re.DOTALL
     )
     if not pattern.search(content):
-        print("Marker TECH-STACK tidak ditemukan di README.md, tidak ada perubahan.")
+        print("Marker LEARNING-ROADMAP tidak ditemukan di README.md.")
         sys.exit(0)
 
     updated = pattern.sub(new_block, content)
@@ -101,11 +113,12 @@ def update_readme(icons):
     if updated != content:
         with open(README_PATH, "w", encoding="utf-8") as f:
             f.write(updated)
-        print("README.md diperbarui dengan Tech Stack terbaru:", icon_query)
+        print("README.md diperbarui dengan Learning Roadmap terbaru.")
     else:
-        print("Tidak ada perubahan pada Tech Stack.")
+        print("Tidak ada perubahan pada Learning Roadmap.")
 
 
 if __name__ == "__main__":
-    icons = get_top_languages(USERNAME)
-    update_readme(icons)
+    languages = get_chronological_languages(USERNAME)
+    mermaid_block = build_mermaid(languages)
+    update_readme(mermaid_block)
