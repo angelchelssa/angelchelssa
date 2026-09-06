@@ -2,12 +2,10 @@
 Menyusun Learning Roadmap secara otomatis berdasarkan urutan bahasa
 pemrograman yang PERTAMA KALI muncul di repo GitHub kamu, diurutkan dari
 repo yang paling lama dibuat ke yang paling baru.
-
 Catatan: ini adalah perkiraan berdasarkan histori GitHub, bukan urutan
 belajar yang sebenarnya (misalnya kalau kamu belajar sesuatu sebelum
 sempat membuat repo untuk itu, urutan di sini tidak akan menangkapnya).
 """
-
 import os
 import re
 import sys
@@ -72,18 +70,15 @@ def get_chronological_languages(username, max_repos=100):
 def build_mermaid(languages):
     if not languages:
         languages = ["Java"]
-
     node_ids = [chr(ord("A") + i) for i in range(len(languages))]
     lines = ["```mermaid", "graph LR"]
-
     if len(node_ids) == 1:
-        lines.append(f"    {node_ids[0]}[{languages[0]}]")
+        lines.append(f'    {node_ids[0]}["{languages[0]}"]')
     else:
         for i in range(len(node_ids) - 1):
             lines.append(
-                f"    {node_ids[i]}[{languages[i]}] --> {node_ids[i+1]}[{languages[i+1]}]"
+                f'    {node_ids[i]}["{languages[i]}"] --> {node_ids[i+1]}["{languages[i+1]}"]'
             )
-
     lines.append("")
     for node_id in node_ids:
         lines.append(f"    style {node_id} fill:#1f2937,stroke:#2F81F7,color:#fff")
@@ -94,22 +89,18 @@ def build_mermaid(languages):
 def update_readme(mermaid_block):
     with open(README_PATH, "r", encoding="utf-8") as f:
         content = f.read()
-
     new_block = (
         "<!-- LEARNING-ROADMAP:START -->\n"
         f"{mermaid_block}\n"
         "<!-- LEARNING-ROADMAP:END -->"
     )
-
     pattern = re.compile(
         r"<!-- LEARNING-ROADMAP:START -->.*?<!-- LEARNING-ROADMAP:END -->", re.DOTALL
     )
     if not pattern.search(content):
         print("Marker LEARNING-ROADMAP tidak ditemukan di README.md.")
         sys.exit(0)
-
     updated = pattern.sub(new_block, content)
-
     if updated != content:
         with open(README_PATH, "w", encoding="utf-8") as f:
             f.write(updated)
