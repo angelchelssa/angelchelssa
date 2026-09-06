@@ -84,7 +84,7 @@ graph TD
 ### Contribution Activity
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/angelchelssa/angelchelssa/output/github-contribution-grid-snake.svg" alt="contribution snake animation" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&pause=1500&color=2F81F7&center=true&vCenter=true&width=550&lines=Actively+contributing+on+GitHub;Building+projects+with+Java%2C+PHP%2C+and+Python;Currently+exploring+Machine+Learning;Always+learning%2C+always+building" alt="contribution activity typing animation" />
 </p>
 
 ---
@@ -101,10 +101,10 @@ graph TD
 
 | Repository | Description | Language |
 |---|---|---|
-| [daspro-jobsheet1](https://github.com/angelchelssa/daspro-jobsheet1) | Repositoriku yang pertama | Java |
-| [daspro-jobsheet2](https://github.com/angelchelssa/daspro-jobsheet2) | Jobsheet praktikum dasar pemrograman | Java |
-| [daspro-jobsheet3](https://github.com/angelchelssa/daspro-jobsheet3) | Jobsheet praktikum dasar pemrograman | Java |
-| [kuis-1](https://github.com/angelchelssa/kuis-1) | Latihan evaluasi materi | Java |
+| [244107020202-mobile-course](https://github.com/angelchelssa/244107020202-mobile-course) | Mobile development coursework | C++ |
+| [Pembelajaran-Mesin-2026](https://github.com/angelchelssa/Pembelajaran-Mesin-2026) | Machine learning coursework | Jupyter Notebook |
+| [PraktikumPWL](https://github.com/angelchelssa/PraktikumPWL) | Web programming practicum | PHP |
+| [PWL_UTS](https://github.com/angelchelssa/PWL_UTS) | Web programming midterm project | PHP |
 
 ---
 
