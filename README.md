@@ -28,16 +28,18 @@ I am an Information Technology student building a strong foundation in programmi
 <!-- LEARNING-ROADMAP:START -->
 ```mermaid
 graph LR
-    A[Java] --> B[HTML]
-    B --> C[CSS]
-    C --> D[JavaScript]
-    D --> E[Python]
+    A[Java] --> B[JavaScript]
+    B[JavaScript] --> C[PHP]
+    C[PHP] --> D[C++]
+    D[C++] --> E[Python (ML)]
+    E[Python (ML)] --> F[Python]
 
     style A fill:#1f2937,stroke:#2F81F7,color:#fff
     style B fill:#1f2937,stroke:#2F81F7,color:#fff
     style C fill:#1f2937,stroke:#2F81F7,color:#fff
     style D fill:#1f2937,stroke:#2F81F7,color:#fff
     style E fill:#1f2937,stroke:#2F81F7,color:#fff
+    style F fill:#1f2937,stroke:#2F81F7,color:#fff
 ```
 <!-- LEARNING-ROADMAP:END -->
 
@@ -47,7 +49,7 @@ graph LR
 
 <!-- TECH-STACK:START -->
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=java,html,css,js,py,git,github,flutter,dart" />
+  <img src="https://skillicons.dev/icons?i=php,js,java,html,cpp,css,dart,py,swift,c,kotlin,git,github" />
 </p>
 <!-- TECH-STACK:END -->
 
