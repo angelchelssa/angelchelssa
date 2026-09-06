@@ -28,11 +28,11 @@ I am an Information Technology student building a strong foundation in programmi
 <!-- LEARNING-ROADMAP:START -->
 ```mermaid
 graph LR
-    A[Java] --> B[JavaScript]
-    B[JavaScript] --> C[PHP]
-    C[PHP] --> D[C++]
-    D[C++] --> E[Python (ML)]
-    E[Python (ML)] --> F[Python]
+    A["Java"] --> B["JavaScript"]
+    B["JavaScript"] --> C["PHP"]
+    C["PHP"] --> D["C++"]
+    D["C++"] --> E["Python (ML)"]
+    E["Python (ML)"] --> F["Python"]
 
     style A fill:#1f2937,stroke:#2F81F7,color:#fff
     style B fill:#1f2937,stroke:#2F81F7,color:#fff
