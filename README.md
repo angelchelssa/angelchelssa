@@ -43,9 +43,11 @@ graph LR
 
 ### Tech Stack
 
+<!-- TECH-STACK:START -->
 <p align="center">
   <img src="https://skillicons.dev/icons?i=java,html,css,js,py,git,github,flutter,dart" />
 </p>
+<!-- TECH-STACK:END -->
 
 ```mermaid
 graph TD
@@ -94,7 +96,7 @@ graph TD
 
 ---
 
-### Quote of the Day
+### My Motto
 
 <p align="center">
   <i>"Plot twist: used to avoid computers, now debugs them daily.<br>Never planned, just how it turned out."</i>
