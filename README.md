@@ -3,9 +3,8 @@
 <p align="center">Focused on Java fundamentals and cross-platform mobile development with Flutter</p>
 
 <p align="center">
-  <a href="mailto:angelchelsa150526@gmail.com"><img src="https://img.shields.io/badge/Email-angelchelsa150526%40gmail.com-2F81F7?style=flat-square" /></a>
-  <a href="https://www.instagram.com/chelseoniy_"><img src="https://img.shields.io/badge/Instagram-chelseoniy__-E4405F?style=flat-square&logo=instagram&logoColor=white" /></a>
-  <a href="https://www.tiktok.com/@chelseon1y_"><img src="https://img.shields.io/badge/TikTok-chelseon1y__-000000?style=flat-square&logo=tiktok&logoColor=white" /></a>
+  <a href="mailto:angelchelsa150526@gmail.com"><img src="https://skillicons.dev/icons?i=gmail" /></a>
+  <a href="https://www.instagram.com/chelseoniy_"><img src="https://skillicons.dev/icons?i=instagram" /></a>
 </p>
 
 ---
@@ -70,21 +69,27 @@ graph TD
 ### GitHub Stats
 
 <p align="center">
-  <img width="45%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=angelchelssa&theme=github_dark" />
-  <img width="45%" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=angelchelssa&theme=github_dark" />
+  <img width="700" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=angelchelssa&theme=github_dark" />
 </p>
 
-<p align="center">
-  <img width="45%" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=angelchelssa&theme=github_dark" />
-  <img width="45%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=angelchelssa&theme=github_dark" />
-</p>
+<table align="center">
+  <tr>
+    <td><img width="260" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=angelchelssa&theme=github_dark" /></td>
+    <td><img width="260" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=angelchelssa&theme=github_dark" /></td>
+    <td><img width="260" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=angelchelssa&theme=github_dark" /></td>
+  </tr>
+</table>
 
 ---
 
 ### Contribution Activity
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&pause=1500&color=2F81F7&center=true&vCenter=true&width=550&lines=Actively+contributing+on+GitHub;Building+projects+with+Java%2C+PHP%2C+and+Python;Currently+exploring+Machine+Learning;Always+learning%2C+always+building" alt="contribution activity typing animation" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/angelchelssa/angelchelssa/output/pacman-contribution-graph-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/angelchelssa/angelchelssa/output/pacman-contribution-graph.svg">
+    <img alt="Pac-Man contribution graph" src="https://raw.githubusercontent.com/angelchelssa/angelchelssa/output/pacman-contribution-graph.svg">
+  </picture>
 </p>
 
 ---
@@ -92,7 +97,7 @@ graph TD
 ### Quote of the Day
 
 <p align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark" alt="dev quote" />
+  <i>"Plot twist: used to avoid computers, now debugs them daily.<br>Never planned, just how it turned out."</i>
 </p>
 
 ---
