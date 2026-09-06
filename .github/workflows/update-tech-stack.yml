@@ -1,4 +1,4 @@
-name: update tech stack from real repos
+name: update readme automation
 
 on:
     schedule:
@@ -24,10 +24,15 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: python update_tech_stack.py
 
+            - name: run learning roadmap updater
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: python update_learning_roadmap.py
+
             - name: commit changes if any
               run: |
                   git config --global user.name "github-actions[bot]"
                   git config --global user.email "github-actions[bot]@users.noreply.github.com"
                   git add README.md
-                  git diff --cached --quiet || git commit -m "chore: update tech stack from real GitHub activity"
+                  git diff --cached --quiet || git commit -m "chore: update tech stack and learning roadmap from real GitHub activity"
                   git push
