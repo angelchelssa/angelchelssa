@@ -25,6 +25,7 @@ I am an Information Technology student building a strong foundation in programmi
 
 ### Learning Roadmap
 
+<!-- LEARNING-ROADMAP:START -->
 ```mermaid
 graph LR
     A[Java] --> B[HTML]
@@ -38,6 +39,7 @@ graph LR
     style D fill:#1f2937,stroke:#2F81F7,color:#fff
     style E fill:#1f2937,stroke:#2F81F7,color:#fff
 ```
+<!-- LEARNING-ROADMAP:END -->
 
 ---
 
@@ -45,7 +47,7 @@ graph LR
 
 <!-- TECH-STACK:START -->
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=php,js,java,html,cpp,css,dart,swift,c,py,kotlin,git,github" />
+  <img src="https://skillicons.dev/icons?i=java,html,css,js,py,git,github,flutter,dart" />
 </p>
 <!-- TECH-STACK:END -->
 
