@@ -49,7 +49,7 @@ graph LR
 
 <!-- TECH-STACK:START -->
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=php,js,java,html,cpp,css,dart,py,swift,c,kotlin,git,github" />
+  <img src="https://skillicons.dev/icons?i=php,js,java,cpp,html,dart,css,swift,c,py,kotlin,git,github" />
 </p>
 <!-- TECH-STACK:END -->
 
